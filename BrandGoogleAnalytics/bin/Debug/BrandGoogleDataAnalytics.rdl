@@ -633,92 +633,68 @@ select * from branding where month=@MonthParameter and year=@YearParameter</Comm
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="MonthParameter">
+      <Query>
+        <DataSourceName>IFSReporting</DataSourceName>
+        <CommandText>select distinct month,DateName( month , DateAdd( month , month , -1 )) as monthname from tblBrandGoogleAanalyticsData order by month desc</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="month">
+          <DataField>month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="monthname">
+          <DataField>monthname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="YearParameter">
+      <Query>
+        <DataSourceName>IFSReporting</DataSourceName>
+        <CommandText>select distinct year from tblBrandGoogleAanalyticsData order by year desc</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="year">
+          <DataField>year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="MonthParameter">
       <DataType>String</DataType>
       <DefaultValue>
-        <Values>
-          <Value>2</Value>
-        </Values>
+        <DataSetReference>
+          <DataSetName>MonthParameter</DataSetName>
+          <ValueField>month</ValueField>
+        </DataSetReference>
       </DefaultValue>
       <Prompt>Month</Prompt>
       <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>1</Value>
-            <Label>January</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2</Value>
-            <Label>February</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>3</Value>
-            <Label>March</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>4</Value>
-            <Label>April</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>5</Value>
-            <Label>May</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>6</Value>
-            <Label>June</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>7</Value>
-            <Label>July</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>8</Value>
-            <Label>August</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>9</Value>
-            <Label>September</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>10</Value>
-            <Label>October</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>11</Value>
-            <Label>November</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>12</Value>
-            <Label>December</Label>
-          </ParameterValue>
-        </ParameterValues>
+        <DataSetReference>
+          <DataSetName>MonthParameter</DataSetName>
+          <ValueField>month</ValueField>
+          <LabelField>monthname</LabelField>
+        </DataSetReference>
       </ValidValues>
     </ReportParameter>
     <ReportParameter Name="YearParameter">
       <DataType>String</DataType>
       <DefaultValue>
-        <Values>
-          <Value>2016</Value>
-        </Values>
+        <DataSetReference>
+          <DataSetName>YearParameter</DataSetName>
+          <ValueField>year</ValueField>
+        </DataSetReference>
       </DefaultValue>
       <Prompt>Year</Prompt>
       <ValidValues>
-        <ParameterValues>
-          <ParameterValue>
-            <Value>2016</Value>
-            <Label>2016</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2015</Value>
-            <Label>2015</Label>
-          </ParameterValue>
-          <ParameterValue>
-            <Value>2014</Value>
-            <Label>2014</Label>
-          </ParameterValue>
-        </ParameterValues>
+        <DataSetReference>
+          <DataSetName>YearParameter</DataSetName>
+          <ValueField>year</ValueField>
+          <LabelField>year</LabelField>
+        </DataSetReference>
       </ValidValues>
     </ReportParameter>
   </ReportParameters>
