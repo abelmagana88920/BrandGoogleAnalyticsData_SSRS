@@ -8,6 +8,10 @@
       <Name>BrandGoogleDataAnalytics.rdl</Name>
       <FullPath>BrandGoogleDataAnalytics.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>ComparableDatawithinBrand.rdl</Name>
+      <FullPath>ComparableDatawithinBrand.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
